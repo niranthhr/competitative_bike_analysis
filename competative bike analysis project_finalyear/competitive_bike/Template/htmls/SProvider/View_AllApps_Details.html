@@ -1,0 +1,93 @@
+{% extends 'SProvider/design1.html' %}
+{% block researchblock %}
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+		<style>
+			body {background-color:#00FFFF;}
+			.container-fluid {padding:50px;}
+			.container{background-color:white;padding:50px;   }
+			#title{font-family: 'Fredoka One', cursive;
+}
+			.text-uppercase{
+			font-family: 'Righteous', cursive;
+
+			}
+			input{
+			font-family:'Russo One', sans-serif;
+			font-size:15px;
+			}
+
+		.style1 {
+	color: #FF0000;
+	font-weight: bold;
+}
+        </style>
+
+	<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+ 					<form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style1"><marquee behavior="alternate"">VIEW ALL UPLOADED APPS DETAILS</marquee></p>
+                            <hr>
+ 					<div class="userdetails">
+                    <table border="1">
+                                    <tr>
+                                        {% for object in list_objects %}
+
+                                    <th bgcolor="#FFFF00" style="color:red; font-size:20px; font-family:fantasy" >App Name</th>
+                                    <th bgcolor="#FFFF00" style="color:red; font-size:20px; font-family:fantasy" >App Desc</th>
+                                    <th bgcolor="#FFFF00" style="color:red; font-size:20px; font-family:fantasy" >Mobile OS</th>
+                                    <th bgcolor="#FFFF00" style="color:red; font-size:20px; font-family:fantasy" >Space Needed</th>
+                                        <th bgcolor="#FFFF00" style="color:red; font-size:20px; font-family:fantasy">Memory Required</th>
+                                         <th bgcolor="#FFFF00" style="color:red; font-size:20px; font-family:fantasy">Apps Uses</th>
+                                        <th bgcolor="#FFFF00" style="color:red; font-size:20px; font-family:fantasy">Uploaded Date</th>
+                                         <th bgcolor="#FFFF00" style="color:red; font-size:20px; font-family:fantasy">Ratings</th>
+                                         <th bgcolor="#FFFF00" style="color:red; font-size:20px; font-family:fantasy">Likes</th>
+                                         <th bgcolor="#FFFF00" style="color:red; font-size:20px; font-family:fantasy">Dislikes</th>
+
+
+                                    </tr>
+
+
+                                    <tr>
+                                        <td style="color:red; font-size:25px; font-family:fantasy" >{{object.names}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.App_desc}}</td>
+                                        <td style="font-family:monospace; font-size:19px;  ">{{object.Mobile_OS}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.Space_Needed}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.Memory_Required}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.App_Uses}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.DT}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.ratings}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.likes}}</td>
+                                        <td style="font-family:monospace; font-size:19px; ">{{object.dislikes}}</td>
+
+
+
+
+
+
+                                  </tr>
+
+                                        {% endfor %}
+                      </table>
+				</div>
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
